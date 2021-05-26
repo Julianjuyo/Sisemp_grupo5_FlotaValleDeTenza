@@ -1,0 +1,74 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.prototipo.controller.MapaDeViaje" xmlns="sap.m" xmlns:vbm="sap.ui.vbm" xmlns:layout="sap.ui.layout" xmlns:layout1="sap.ui.commons.layout">
+    <Page showHeader="false" title="" showFooter="false" showNavButton="false" enableScrolling="false" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout1:positions>
+                    <layout1:PositionContainer left="153px" top="283px">
+                        <layout1:control>
+                            <vbm:GeoMap legendVisible="true" scaleVisible="true" width="70%" height="494px" initialPosition="-73.50725268526595;5.381232947017827;0" centerPosition="-73.50725268526595;5.381232947017827;0" initialZoom="8" zoomlevel="8" enableAnimation="false" refMapLayerStack="Default" disableZoom="false" disablePan="false">
+                                <vbm:resources/>
+                                <vbm:legend/>
+                                <vbm:vos>
+                                    <vbm:Spots>
+                                        <vbm:items>
+                                            <vbm:Spot position="{origen/ubicacion}" text="{origen/ID}" alignment="5"/>
+                                            <vbm:Spot position="{destino/ubicacion}" text="{destino/ID}" alignment="5"/>
+                                        </vbm:items>
+                                    </vbm:Spots>
+                                    <vbm:Circles>
+                                        <vbm:items/>
+                                    </vbm:Circles>
+                                    <vbm:Routes>
+                                        <vbm:items>
+                                            <vbm:Route position="{origen/ubicacion}" start="{origen/ubicacion}" end="{destino/ubicacion}"/>
+                                        </vbm:items>
+                                    </vbm:Routes>
+                                </vbm:vos>
+                            </vbm:GeoMap>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="2px" top="133px">
+                        <layout1:control>
+                            <layout:VerticalLayout width="100%" visible="true">
+                                <layout:content>
+                                    <ObjectListItem intro="Destino" title="{destino/ID}" icon="sap-icon://hint" number="" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="5px" top="6px">
+                        <layout1:control>
+                            <Image src="/webapp/resources/Logo_fvdt_app.png" height="114.00000000px" width="199.10247858px" visible="true" densityAware="false"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="900px" top="30px">
+                        <layout1:control>
+                            <Button text="Volver" type="Default" icon="sap-icon://nav-back" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="468px" top="47px">
+                        <layout1:control>
+                            <Title text="MAPA DE VIAJE" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                </layout1:positions>
+            </layout1:AbsoluteLayout>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,0 +1,15 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "grupo 5",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/approuter": "^10.4.0",
+    "@sap/html5-repo-mock": "^2.0.1"
+  }
+}
