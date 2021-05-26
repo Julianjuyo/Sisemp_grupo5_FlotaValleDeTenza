@@ -1,0 +1,159 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.prototipo.controller.BalanceDeRuta" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart" xmlns:layout1="sap.ui.commons.layout">
+    <Page showHeader="true" title="Balance de viaje" showFooter="false" showNavButton="false" enableScrolling="false">
+        <content>
+            <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout1:positions>
+                    <layout1:PositionContainer left="36px" top="40px">
+                        <layout1:control>
+                            <Image src="/webapp/resources/Logo_fvdt_app.png" height="100px" width="auto" visible="true" densityAware="false"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="224px" top="36px">
+                        <layout1:control>
+                            <layout:VerticalLayout width="763.00000000px" visible="true">
+                                <layout:content>
+                                    <ObjectListItem intro="{origen/ID}" title="{destino/ID}" icon="sap-icon://map-3" number="{path: 'tarifa', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" numberUnit="COP" numberState="None" type="Navigation" selected="false" showMarkers="false" press="_onObjectListItemPress">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="35px" top="183px">
+                        <layout1:control>
+                            <GenericTile header="Pasajeros" subheader="En bus actualmente" frameType="OneByOne">
+                                <tileContent>
+                                    <TileContent footer="" unit="">
+                                        <content>
+                                            <NumericContent value="23" valueColor="Neutral" indicator="None" icon="sap-icon://person-placeholder"/>
+                                        </content>
+                                    </TileContent>
+                                </tileContent>
+                            </GenericTile>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="552px" top="183px">
+                        <layout1:control>
+                            <GenericTile header="Tiempo" subheader="Desde el inicio" frameType="OneByOne">
+                                <tileContent>
+                                    <TileContent footer="" unit="">
+                                        <content>
+                                            <NumericContent value="1:17" valueColor="Neutral" indicator="None" icon="sap-icon://fob-watch"/>
+                                        </content>
+                                    </TileContent>
+                                </tileContent>
+                            </GenericTile>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="811px" top="183px">
+                        <layout1:control>
+                            <GenericTile header="Recogidos" subheader="Desde el inicio" frameType="OneByOne">
+                                <tileContent>
+                                    <TileContent footer="" unit="">
+                                        <content>
+                                            <NumericContent value="26" valueColor="Neutral" indicator="None" icon="sap-icon://bus-public-transport"/>
+                                        </content>
+                                    </TileContent>
+                                </tileContent>
+                            </GenericTile>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="1072px" top="183px">
+                        <layout1:control>
+                            <GenericTile header="Recaudado" subheader="Desde el inicio" frameType="OneByOne">
+                                <tileContent>
+                                    <TileContent footer="" unit="">
+                                        <content>
+                                            <NumericContent value="780k" valueColor="Neutral" indicator="None" icon="sap-icon://simple-payment"/>
+                                        </content>
+                                    </TileContent>
+                                </tileContent>
+                            </GenericTile>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="298px" top="183px">
+                        <layout1:control>
+                            <GenericTile header="Ocupación" subheader="Del aforo autorizado" frameType="OneByOne">
+                                <tileContent>
+                                    <TileContent footer="Máximo" unit="{path: 'ocupacion', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}">
+                                        <content>
+                                            <microchart:RadialMicroChart percentage="77" size="S" valueColor="Critical"/>
+                                        </content>
+                                    </TileContent>
+                                </tileContent>
+                            </GenericTile>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="35px" top="397px">
+                        <layout1:control>
+                            <Button text="Nuevo pasajero" type="Accept" icon="sap-icon://drill-up" iconFirst="true" width="45%" enabled="true" visible="true" tooltip="Nuevo pasajero" iconDensityAware="false" press="_onButtonPress"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="519px" top="398px">
+                        <layout1:control>
+                            <Button text="Reportar bajada" type="Reject" icon="sap-icon://drill-down" iconFirst="true" width="45%" enabled="true" visible="true" tooltip="Reportar bajada" iconDensityAware="false"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="0px" top="455px">
+                        <layout1:control>
+                            <Table width="auto" noDataText="Sin pasajeros" mode="None" showSeparators="All" growing="true" growingThreshold="9" growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'pasajeros', templateShareable:true}">
+                                <infoToolbar>
+                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                        <content>
+                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </content>
+                                    </Toolbar>
+                                </infoToolbar>
+                                <headerToolbar>
+                                    <OverflowToolbar width="auto" height="auto" design="Auto" visible="true" enabled="true">
+                                        <content>
+                                            <Title text="Pasajeros" titleStyle="H2" width="auto" textAlign="Center" visible="true" wrapping="false"/>
+                                        </content>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Nombre" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Documento" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Destino" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Active">
+                                        <cells>
+                                            <Text text="{nombre}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{destino}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                </layout1:positions>
+            </layout1:AbsoluteLayout>
+        </content>
+        <footer/>
+        <headerContent>
+            <Button text="Incidente" type="Emphasized" icon="sap-icon://message-warning" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Incidente" iconDensityAware="false" press="_onButtonPress1"/>
+            <Button text="Finalizar" type="Reject" icon="sap-icon://stop" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Finalizar" iconDensityAware="false" press="_onButtonPress2"/>
+        </headerContent>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

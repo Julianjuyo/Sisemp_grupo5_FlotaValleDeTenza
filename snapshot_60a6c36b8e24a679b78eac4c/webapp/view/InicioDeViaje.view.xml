@@ -1,0 +1,123 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.prototipo.controller.InicioDeViaje" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:layout1="sap.ui.commons.layout">
+    <Page showHeader="true" title="Viajes" showFooter="true" showNavButton="false" enableScrolling="false">
+        <content>
+            <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout1:positions>
+                    <layout1:PositionContainer left="89px" top="241px">
+                        <layout1:control>
+                            <Text text="Punto de partida" width="111.3125px" maxLines="1" wrapping="false" textAlign="Left" textDirection="Inherit" visible="true"/>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="33px" top="227px">
+                        <layout1:control>
+                            <OverflowToolbar width="auto" height="47.3125px" design="Transparent" visible="true" enabled="true">
+                                <content>
+                                    <Title text="Rutas" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                    <ToolbarSpacer width=""/>
+                                </content>
+                            </OverflowToolbar>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="0px" top="176px">
+                        <layout1:control>
+                            <Table id="sap_m_Page_0-content-build_simple_Table-1621561034490" width="auto" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'/ViajeSet', templateShareable:true, parameters:{expand:'origen,destino,conductor'}}">
+                                <infoToolbar>
+                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                        <content>
+                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </content>
+                                    </Toolbar>
+                                </infoToolbar>
+                                <headerToolbar/>
+                                <columns>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Origen" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Destino" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Hora" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Distancia (aprox)" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Tiempo (aprox)" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Costo del pasaje" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Conductor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Active">
+                                        <cells>
+                                            <Text text="{origen/ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{destino/ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{path: 'fecha', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{path: 'hora', type: 'sap.ui.model.odata.type.Time', formatOptions: { UTC: true, style: 'medium' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{path: 'distancia', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{path: 'tiempo', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{path: 'tarifa', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{conductor/ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="0px" top="41px">
+                        <layout1:control>
+                            <layout:Grid defaultIndent="L0 M0 S0" defaultSpan="L2 M2 S2" position="Left" width="958.00000000px" containerQuery="false" hSpacing="1" vSpacing="1" visible="true" class="sapUiMediumMargin">
+                                <layout:content>
+                                    <Button text="Iniciar viaje" type="Emphasized" icon="sap-icon://media-play" iconFirst="true" width="129px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                                    <SearchField placeholder="Cédula" showSearchButton="true" visible="true" width="140.984375px" search="_onSearchFieldSearch"/>
+                                    <ComboBox selectedKey="" placeholder="Destino" editable="true" enabled="true" visible="true" width="279.3125px" valueState="None" maxWidth="100%" items="{path:'/ViajeSet', templateShareable:true, parameters:{expand:'destino'}}">
+                                        <items>
+                                            <core:Item text="{destino/ID}" enabled="true" key="{destino/ID}"/>
+                                        </items>
+                                    </ComboBox>
+                                    <Button text="Filtrar" type="Emphasized" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+                                </layout:content>
+                            </layout:Grid>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                </layout1:positions>
+            </layout1:AbsoluteLayout>
+        </content>
+        <footer/>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>
